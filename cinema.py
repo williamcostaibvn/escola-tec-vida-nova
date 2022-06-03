@@ -36,15 +36,22 @@ while('_' in cinema):
     reservaList = list(reserva)
     coluna = str(reservaList[0])
     dezena = str(posicao[coluna])
-    reservaNumerica = str(reservaList[1] + dezena)
+
+    if (len(reservaList) == 3):
+        reservaNumerica = str(reservaList[1] + reservaList[2] + dezena)
+    elif (len(reservaList) == 4):
+        reservaNumerica = str(reservaList[1] + reservaList[2] + reservaList[3] + dezena)
+    else:
+        reservaNumerica = str(reservaList[1] + dezena)
+
     cadeira = int(reservaNumerica)
     cadeiraReservada = int(cadeira - 10)
 
-    # if (cadeiraReservada > len(cinema)):
-    #     print("\n*************** A T E N Ç Ã O ****************")
-    #     print("* Acento indisponível, escolha outro acento. *")
-    #     print("**********************************************")
-    if (cinema[cadeiraReservada] == 'x'):
+    if (cadeiraReservada >= len(cinema)):
+        print("\n*************** A T E N Ç Ã O ****************")
+        print("* Acento indisponível, escolha outro acento. *")
+        print("**********************************************")
+    elif (cinema[cadeiraReservada] == 'x'):
         print("\n************* A T E N Ç Ã O *************")
         print("* Acento ocupado, escolha outro acento. *")
         print("*****************************************")
