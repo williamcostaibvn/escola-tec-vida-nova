@@ -9,6 +9,8 @@ def salaDeCinema():
         if ((montagem + 1) % 10 == 0):
             print(linha)
             linha += 1
+    if (((montagem + 1) % 10 == 0) == False):
+        print(linha)
     print("\n******* FUNDO *******")
 
 #Recebendo a quantidade de cadeiras que terão na sala de cinema
