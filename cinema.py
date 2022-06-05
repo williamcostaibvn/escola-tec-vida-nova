@@ -5,11 +5,21 @@ def salaDeCinema():
     print("a b c d e f g h i j |")
     for montagem in range (0, totalCadeiras):
         print(cinema[montagem], end = ' ')
-
+        # Numerando as fileiras da sala de cinema
         if ((montagem + 1) % 10 == 0):
             print(linha)
             linha += 1
-    if (((montagem + 1) % 10 == 0) == False):
+
+    # Opção 1: para exibição da numeração da ultima fileira
+    # if (((montagem + 1) % 10 == 0) == False):
+    #     print(linha)
+    
+    # Opção 2: para exibição da numeração da ultima fileira
+    # if if ((montagem + 1) % 10):
+    #     print(linha)
+
+    # Opção 3: para exibição da numeração da ultima fileira
+    if (len(cinema) % 10):
         print(linha)
     print("\n******* FUNDO *******")
 
@@ -31,36 +41,46 @@ salaDeCinema()
 #Biblioteca de posições
 posicao = {'A' : str(0),'B' : str(1),'C' : str(2),'D' : str(3),'E' : str(4),'F' : str(5),'G' : str(6),'H' : str(7),'I' : str(8),'J' : str(9)}
 
-#Iniciando a reserva das cadeiras
+#Loop para finalizar o app quando a sala estiver toda reservada
 while('_' in cinema):
+    #Iniciando a reserva das cadeiras
     entrada = str(input("\nInforme o Acento em que deseja assistir ao filme? (Ex: \"F1\"): "))
     reserva = entrada.upper()
     reservaList = list(reserva)
-    coluna = str(reservaList[0])
-    dezena = str(posicao[coluna])
-
-    if (len(reservaList) == 3):
-        reservaNumerica = str(reservaList[1] + reservaList[2] + dezena)
-    elif (len(reservaList) == 4):
-        reservaNumerica = str(reservaList[1] + reservaList[2] + reservaList[3] + dezena)
-    else:
-        reservaNumerica = str(reservaList[1] + dezena)
-
-    cadeira = int(reservaNumerica)
-    cadeiraReservada = int(cadeira - 10)
-
-    if (cadeiraReservada >= len(cinema)):
+    #Solucinando escolha errada de coluna
+    if ((reservaList[0] in posicao) == False):
         print("\n*************** A T E N Ç Ã O ****************")
         print("* Acento indisponível, escolha outro acento. *")
         print("**********************************************")
-    elif (cinema[cadeiraReservada] == 'x'):
-        print("\n************* A T E N Ç Ã O *************")
-        print("* Acento ocupado, escolha outro acento. *")
-        print("*****************************************")
     else:
-        cinema[cadeiraReservada] = 'x'
-        salaDeCinema()
-        print("\nAcento reservado com sucesso!")
+        coluna = str(reservaList[0])
+        dezena = str(posicao[coluna])
+
+        if (len(reservaList) == 3):
+            reservaNumerica = str(reservaList[1] + reservaList[2] + dezena)
+        elif (len(reservaList) == 4):
+            reservaNumerica = str(reservaList[1] + reservaList[2] + reservaList[3] + dezena)
+        else:
+            reservaNumerica = str(reservaList[1] + dezena)
+
+        cadeira = int(reservaNumerica)
+        cadeiraReservada = int(cadeira - 10)
+
+        #Solucinando escolha errada de fileira
+        if (cadeiraReservada >= len(cinema)):
+            print("\n*************** A T E N Ç Ã O ****************")
+            print("* Acento indisponível, escolha outro acento. *")
+            print("**********************************************")
+        #Solucinando escolha de acento já reservado
+        elif (cinema[cadeiraReservada] == 'x'):
+            print("\n************* A T E N Ç Ã O *************")
+            print("* Acento ocupado, escolha outro acento. *")
+            print("*****************************************")
+        #Reservando acento
+        else:
+            cinema[cadeiraReservada] = 'x'
+            salaDeCinema()
+            print("\nAcento reservado com sucesso!")
 
 #Encerrando o programa
 print("\nTODOS EM SEUS LUGARES!!!")
