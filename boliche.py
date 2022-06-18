@@ -34,14 +34,17 @@ posicao_dos_pinos = {
 
 jogo = [27, 18, 20, 9, 11, 13, 0, 2, 4, 6]
 
+mostra_pista(pista)
+
 jogada1 = str(input('\nDeseja jogar a Primeira Bola (s/n)? '))
+print()
 
 result = ''
 
 if(jogada1 == 's'):
 
     for x in range(1): 
-        lancamento = random.choices(jogo, weights=[7, 8, 6, 8, 7, 8, 6, 8, 5, 10], k=10)
+        lancamento = random.choices(jogo, weights=[9, 9, 9, 9, 9, 10, 10, 10, 10, 10], k=10)
         lancamento = remove_repetidos(lancamento)
 
         for pino in lancamento:
@@ -53,7 +56,7 @@ else:
 mostra_pista(pista)
 
 if('I' in pista):
-    print('\nParabéns... você precisa derrubar', pista.count('I'),'pino(s) para fazer um SPARE\n')
+    print('\nFoi por pouco!!! Derrube mais', pista.count('I'),'pino(s) para fazer um SPARE\n')
     result = 'spare'
 else:
     print('\nSTRIIIIIKE... Você derrubou tudo... PARABÉNS!!!\n')
@@ -61,11 +64,12 @@ else:
 
 if(result == 'spare'):
     jogada2 = str(input('Deseja jogar a Segunda Bola (s/n)? '))
+    print()
 
     if(jogada2 == 's'):
 
         for x in range(1): 
-            lancamento2 = random.choices(jogo, weights=[5, 5, 6, 8, 4, 5, 4, 8, 5, 10], k=10)
+            lancamento2 = random.choices(jogo, weights=[9, 9, 9, 9, 9, 10, 10, 10, 10, 10], k=10)
             lancamento2 = remove_repetidos(lancamento2)
 
             for pino in lancamento2:
