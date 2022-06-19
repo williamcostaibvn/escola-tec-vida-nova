@@ -15,11 +15,11 @@ class Quitanda:
         troco = valorPago - divida
         print('Troco:      R$ ', troco)
         print('')
-        print('Devolva:')
         if(troco > 0):
+            print('Devolva:')
             for cedula in tipoCedulas:
                 if troco >= cedula:
                     quantCedula = troco/cedula
-                    print('%s notas de R$ %s.' % (int(quantCedula), cedula))
+                    print('%s nota(s) de R$ %s.' % (int(quantCedula), cedula))
                     resto = troco%cedula
                     troco = resto
