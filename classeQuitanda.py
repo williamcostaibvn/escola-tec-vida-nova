@@ -20,6 +20,6 @@ class Quitanda:
             for cedula in tipoCedulas:
                 if troco >= cedula:
                     quantCedula = troco/cedula
-                    print('%s nota(s) de R$ %s.' % (int(quantCedula), cedula))
+                    print('%s nota(s) de R$ %s.00' % (int(quantCedula), cedula))
                     resto = troco%cedula
                     troco = resto
