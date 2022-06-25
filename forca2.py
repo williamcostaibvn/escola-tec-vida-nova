@@ -2,6 +2,53 @@ import random
 
 # Funções para Desenhar a Forca
 def montarForca1():
+    if(chances - erros == 4):
+        print('.____.')
+        print('|    |')
+        print('|')
+        print('|')
+        print('|')
+        print('|')
+        print('|')
+        print('##########')
+    elif(chances - erros == 3):
+        print('.____.')
+        print('|    |')
+        print("|  ('_')")
+        print('|')
+        print('|')
+        print('|')
+        print('|')
+        print('##########')
+    elif(chances - erros == 2):
+        print('.____.')
+        print('|    |')
+        print("|  ('_')")
+        print('|  -| |-')
+        print('| / |_| \\')
+        print('|')
+        print('|')
+        print('##########')        
+    elif(chances - erros == 1):
+        print('.____.')
+        print('|    |')
+        print("|  ('_')")
+        print('|  -| |-')
+        print('| / |_| \\')
+        print('|  _| |_')
+        print('|')
+        print('##########')
+    elif(chances - erros == 0):
+        print('.____.')
+        print('|  (x_x)')
+        print('|  -| |-')
+        print('| / |_| \\')
+        print('|   | |')
+        print('|  /   \\')
+        print('|')
+        print('##########')
+
+def montarForca2():
     if(chances - erros == 6):
         print('.____.')
         print('|    |')
@@ -66,7 +113,7 @@ def montarForca1():
         print('|')
         print('##########')
 
-def montarForca2():
+def montarForca3():
     if(chances - erros == 8):
         print('.____.')
         print('|    |')
@@ -149,7 +196,7 @@ def montarForca2():
         print('|')
         print('##########')
 
-def montarForca3():
+def montarForca4():
     if(chances - erros == 10):
         print('.____.')
         print('|    |')
@@ -257,8 +304,11 @@ def montarForca():
     elif(len(palavraInicial) >= 7 and len(palavraInicial) <= 9):
         montarForca2()
 
-    elif(len(palavraInicial) >= 10):
+    elif(len(palavraInicial) >= 10 and len(palavraInicial) <= 11):
         montarForca3()
+
+    elif(len(palavraInicial) >= 12):
+        montarForca4()
 
 # Dicionario de Categorias de Palavras disponíveis para o jogo
 categorias = {
@@ -367,12 +417,15 @@ palavraInicial = palavraInicial.upper()
 
 # Fornecendo número de chances
 if(len(palavraInicial) <= 6):
-    chances = 6
+    chances = 4
 
 elif(len(palavraInicial) >= 7 and len(palavraInicial) <= 9):
+    chances = 6
+
+elif(len(palavraInicial) >= 10 and len(palavraInicial) <= 11):
     chances = 8
 
-elif(len(palavraInicial) >= 10):
+elif(len(palavraInicial) >= 12):
     chances = 10
 
 print('\nCategoria escolhida: ', escolha.upper())
