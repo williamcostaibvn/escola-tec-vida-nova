@@ -258,7 +258,7 @@ def montarForca():
         montarForca2()
 
     elif(len(palavraInicial) >= 10):
-        montarForca3
+        montarForca3()
 
 # Dicionario de Categorias de Palavras disponíveis para o jogo
 categorias = {
