@@ -1,211 +1,20 @@
 import random
 
-# Funções para Desenhar a Forca
-def montarForca1():
-    if(chances - erros == 4):
+# Função para Desenhar a Forca
+def montarForca():
+
+    # Usa em todos
+    if(erros == 0):
         print('.____.')
         print('|    |')
         print('|')
         print('|')
         print('|')
         print('|')
-        print('|')
-        print('##########')
-    elif(chances - erros == 3):
-        print('.____.')
-        print('|    |')
-        print("|  ('_')")
-        print('|')
-        print('|')
-        print('|')
-        print('|')
-        print('##########')
-    elif(chances - erros == 2):
-        print('.____.')
-        print('|    |')
-        print("|  ('_')")
-        print('|  -| |-')
-        print('| / |_| \\')
-        print('|')
-        print('|')
-        print('##########')        
-    elif(chances - erros == 1):
-        print('.____.')
-        print('|    |')
-        print("|  ('_')")
-        print('|  -| |-')
-        print('| / |_| \\')
-        print('|  _| |_')
-        print('|')
-        print('##########')
-    elif(chances - erros == 0):
-        print('.____.')
-        print('|  (x_x)')
-        print('|  -| |-')
-        print('| / |_| \\')
-        print('|   | |')
-        print('|  /   \\')
         print('|')
         print('##########')
 
-def montarForca2():
-    if(chances - erros == 6):
-        print('.____.')
-        print('|    |')
-        print('|')
-        print('|')
-        print('|')
-        print('|')
-        print('|')
-        print('##########')
-    elif(chances - erros == 5):
-        print('.____.')
-        print('|    |')
-        print("|  ('_')")
-        print('|')
-        print('|')
-        print('|')
-        print('|')
-        print('##########')
-    elif(chances - erros == 4):
-        print('.____.')
-        print('|    |')
-        print("|  ('_')")
-        print('|   | |')
-        print('|   |_|')
-        print('|')
-        print('|')
-        print('##########')
-    elif(chances - erros == 3):
-        print('.____.')
-        print('|    |')
-        print("|  ('_')")
-        print('|  -| |')
-        print('| / |_|')
-        print('|')
-        print('|')
-        print('##########')
-    elif(chances - erros == 2):
-        print('.____.')
-        print('|    |')
-        print("|  ('_')")
-        print('|  -| |-')
-        print('| / |_| \\')
-        print('|')
-        print('|')
-        print('##########')        
-    elif(chances - erros == 1):
-        print('.____.')
-        print('|    |')
-        print("|  ('_')")
-        print('|  -| |-')
-        print('| / |_| \\')
-        print('|  _|')
-        print('|')
-        print('##########')
-    elif(chances - erros == 0):
-        print('.____.')
-        print('|  (x_x)')
-        print('|  -| |-')
-        print('| / |_| \\')
-        print('|   | |')
-        print('|  /   \\')
-        print('|')
-        print('##########')
-
-def montarForca3():
-    if(chances - erros == 8):
-        print('.____.')
-        print('|    |')
-        print('|')
-        print('|')
-        print('|')
-        print('|')
-        print('|')
-        print('##########')
-    elif(chances - erros == 7):
-        print('.____.')
-        print('|    |')
-        print("|  ('  )")
-        print('|')
-        print('|')
-        print('|')
-        print('|')
-        print('##########')
-    elif(chances - erros == 6):
-        print('.____.')
-        print('|    |')
-        print("|  (' ')")
-        print('|')
-        print('|')
-        print('|')
-        print('|')
-        print('##########')
-    elif(chances - erros == 5):
-        print('.____.')
-        print('|    |')
-        print("|  ('_')")
-        print('|')
-        print('|')
-        print('|')
-        print('|')
-        print('##########')
-    elif(chances - erros == 4):
-        print('.____.')
-        print('|    |')
-        print("|  ('_')")
-        print('|   | |')
-        print('|   |_|')
-        print('|')
-        print('|')
-        print('##########')
-    elif(chances - erros == 3):
-        print('.____.')
-        print('|    |')
-        print("|  ('_')")
-        print('|  -| |')
-        print('| / |_|')
-        print('|')
-        print('|')
-        print('##########')
-    elif(chances - erros == 2):
-        print('.____.')
-        print('|    |')
-        print("|  ('_')")
-        print('|  -| |-')
-        print('| / |_| \\')
-        print('|')
-        print('|')
-        print('##########')        
-    elif(chances - erros == 1):
-        print('.____.')
-        print('|    |')
-        print("|  ('_')")
-        print('|  -| |-')
-        print('| / |_| \\')
-        print('|  _|')
-        print('|')
-        print('##########')
-    elif(chances - erros == 0):
-        print('.____.')
-        print('|  (x_x)')
-        print('|  -| |-')
-        print('| / |_| \\')
-        print('|   | |')
-        print('|  /   \\')
-        print('|')
-        print('##########')
-
-def montarForca4():
-    if(chances - erros == 10):
-        print('.____.')
-        print('|    |')
-        print('|')
-        print('|')
-        print('|')
-        print('|')
-        print('|')
-        print('##########')
+    # Usa em chances = 10 com 1 erro
     elif(chances - erros == 9):
         print('.____.')
         print('|    |')
@@ -215,7 +24,11 @@ def montarForca4():
         print('|')
         print('|')
         print('##########')
-    elif(chances - erros == 8):
+
+    # Usa em Chances = 10 com 2 erros
+    # Usa em Chances = 8 com 1 erro 
+    elif((chances == 10 and erros == 2)
+        or (chances == 8 and erros == 1)):
         print('.____.')
         print('|    |')
         print("|  ('  )")
@@ -224,7 +37,11 @@ def montarForca4():
         print('|')
         print('|')
         print('##########')
-    elif(chances - erros == 7):
+
+    # Usa em Chances = 10 com 3 erros
+    # Usa em Chances = 8 com 2 erros
+    elif((chances == 10 and erros == 3)
+        or (chances == 8 and erros == 2)):
         print('.____.')
         print('|    |')
         print("|  (' ')")
@@ -233,7 +50,15 @@ def montarForca4():
         print('|')
         print('|')
         print('##########')
-    elif(chances - erros == 6):
+    
+    # Usa em Chances = 10 com 4 erros
+    # Usa em Chances = 8 com 3 erros
+    # Usa em Chances = 6 com 1 erro
+    # Usa em Chances = 4 com 1 erro 
+    elif((chances == 10 and erros == 4)
+        or (chances == 8 and erros == 3)
+        or (chances == 6 and erros == 1)
+        or (chances == 4 and erros == 1)):
         print('.____.')
         print('|    |')
         print("|  ('_')")
@@ -242,7 +67,13 @@ def montarForca4():
         print('|')
         print('|')
         print('##########')
-    elif(chances - erros == 5):
+
+    # Usa em Chances = 10 com 5 erros
+    # Usa em Chances = 8 com 4 erros
+    # Usa em Chances = 6 com 2 erros
+    elif((chances == 10 and erros == 5)
+        or (chances == 8 and erros == 4)
+        or (chances == 6 and erros == 2)):
         print('.____.')
         print('|    |')
         print("|  ('_')")
@@ -251,7 +82,13 @@ def montarForca4():
         print('|')
         print('|')
         print('##########')
-    elif(chances - erros == 4):
+    
+    # Usa em Chances = 10 com 6 erros
+    # Usa em Chances = 8 com 5 erros
+    # Usa em Chances = 6 com 3 erros
+    elif((chances == 10 and erros == 6)
+        or (chances == 8 and erros == 5)
+        or (chances == 6 and erros == 3)):
         print('.____.')
         print('|    |')
         print("|  ('_')")
@@ -260,7 +97,15 @@ def montarForca4():
         print('|')
         print('|')
         print('##########')
-    elif(chances - erros == 3):
+
+    # Usa em Chances = 10 com 7 erros
+    # Usa em Chances = 8 com 6 erros
+    # Usa em Chances = 6 com 4 erros
+    # Usa em Chances = 4 com 2 erros
+    elif((chances == 10 and erros == 7)
+        or (chances == 8 and erros == 6)
+        or (chances == 6 and erros == 4)
+        or (chances == 4 and erros == 2)):
         print('.____.')
         print('|    |')
         print("|  ('_')")
@@ -268,8 +113,14 @@ def montarForca4():
         print('| / |_| \\')
         print('|')
         print('|')
-        print('##########')        
-    elif(chances - erros == 2):
+        print('##########')
+
+    # Usa em Chances = 10 com 8 erros
+    # Usa em Chances = 8 com 7 erros
+    # Usa em Chances = 6 com 5 erros
+    elif((chances == 10 and erros == 8)
+        or (chances == 8 and erros == 7)
+        or (chances == 6 and erros == 5)):
         print('.____.')
         print('|    |')
         print("|  ('_')")
@@ -278,7 +129,11 @@ def montarForca4():
         print('|  _|')
         print('|')
         print('##########')
-    elif(chances - erros == 1):
+    
+    # Usa em Chances = 10 com 9 erro
+    # Usa em Chances = 4 com 3 erros
+    elif((chances == 10 and erros == 9)
+        or (chances == 4 and erros == 3)):
         print('.____.')
         print('|    |')
         print("|  ('_')")
@@ -286,8 +141,16 @@ def montarForca4():
         print('| / |_| \\')
         print('|  _| |_')
         print('|')
-        print('##########')  
-    elif(chances - erros == 0):
+        print('##########')
+    
+    # Usa em Chances = 10 com 10 erros
+    # Usa em Chances = 8 com 8 erros
+    # Usa em Chances = 6 com 6 erros
+    # Usa em Chances = 4 com 4 erros
+    elif((chances == 10 and erros == 10)
+        or (chances == 8 and erros == 8)
+        or (chances == 6 and erros == 6)
+        or (chances == 4 and erros == 4)):
         print('.____.')
         print('|  (x_x)')
         print('|  -| |-')
@@ -296,19 +159,6 @@ def montarForca4():
         print('|  /   \\')
         print('|')
         print('##########')
-
-def montarForca():
-    if(len(palavraInicial) <= 6):
-        montarForca1()
-
-    elif(len(palavraInicial) >= 7 and len(palavraInicial) <= 9):
-        montarForca2()
-
-    elif(len(palavraInicial) >= 10 and len(palavraInicial) <= 11):
-        montarForca3()
-
-    elif(len(palavraInicial) >= 12):
-        montarForca4()
 
 # Dicionario de Categorias de Palavras disponíveis para o jogo
 categorias = {
@@ -445,7 +295,7 @@ while erros < chances and not acerteiTudo:
     print()
 
     # Solicitando palpite
-    palpite = input('\nDiga uma letra: ')
+    palpite = input('\nDigite uma letra: ')
 
     # Validando palpite
     palpiteValid = palpite.isalpha() and len(palpite) == 1
@@ -488,8 +338,6 @@ while erros < chances and not acerteiTudo:
             else:
                 print('Erroooou... Você ainda pode errar:', chances - erros,'vezes')
             
-            
-
     #Exibir Palpites
     print('Palpites: ')
     for letras in letrasUsadas:
