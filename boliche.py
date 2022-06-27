@@ -44,7 +44,7 @@ result = ''
 if(jogada1 == 's'):
 
     for x in range(1): 
-        lancamento = random.choices(jogo, weights=[9, 9, 9, 9, 9, 10, 10, 10, 10, 10], k=10)
+        lancamento = random.choices(jogo, weights=[10, 10, 10, 10, 10, 10, 10, 10, 10, 10], k=10)
         lancamento = remove_repetidos(lancamento)
 
         for pino in lancamento:
@@ -55,8 +55,11 @@ else:
 
 mostra_pista(pista)
 
-if('I' in pista):
-    print('\nFoi por pouco!!! Derrube mais', pista.count('I'),'pino(s) para fazer um SPARE\n')
+if(pista.count('I') == 1):
+    print('\nFoi por pouco!!! Derrube o último pino para fazer um SPARE!\n')
+    result = 'spare'
+elif(pista.count('I') > 1):
+    print('\nFoi por pouco!!! Derrube mais', pista.count('I'),'pinos para fazer um SPARE!!!\n')
     result = 'spare'
 else:
     print('\nSTRIIIIIKE... Você derrubou tudo... PARABÉNS!!!\n')
@@ -69,7 +72,7 @@ if(result == 'spare'):
     if(jogada2 == 's'):
 
         for x in range(1): 
-            lancamento2 = random.choices(jogo, weights=[9, 9, 9, 9, 9, 10, 10, 10, 10, 10], k=10)
+            lancamento2 = random.choices(jogo, weights=[10, 10, 10, 10, 10, 10, 10, 10, 10, 10], k=10)
             lancamento2 = remove_repetidos(lancamento2)
 
             for pino in lancamento2:
@@ -78,10 +81,13 @@ if(result == 'spare'):
     else:
         exit()
 
-    mostra_pista(pista)
+mostra_pista(pista)
 
-if('I' in pista):
-    print('\nQue pena, só faltou derrubar', pista.count('I'),'pino(s)\n')
+if(pista.count('I') == 1):
+    print('\nParabéns, só faltou 1 pino... Por pouco não foi um Spare!!!\n')
+
+elif(pista.count('I') > 1):
+    print('\nParabéns, só sobraram', pista.count('I'),'pinos!!!\n')
     
 else:
     print('\nWooowwww... Você fez um SPAREEEEE... PARABÉNS!!!\n')
