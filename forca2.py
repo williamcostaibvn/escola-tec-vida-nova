@@ -1,5 +1,7 @@
 import random
 
+from PIL import Image
+
 # Função para Desenhar a Forca
 def montarForca():
 
@@ -27,8 +29,7 @@ def montarForca():
 
     # Usa em Chances = 10 com 2 erros
     # Usa em Chances = 8 com 1 erro 
-    elif((chances == 10 and erros == 2)
-        or (chances == 8 and erros == 1)):
+    elif((chances == 10 and erros == 2) or (chances == 8 and erros == 1)):
         print('.____.')
         print('|    |')
         print("|  ('  )")
@@ -40,8 +41,7 @@ def montarForca():
 
     # Usa em Chances = 10 com 3 erros
     # Usa em Chances = 8 com 2 erros
-    elif((chances == 10 and erros == 3)
-        or (chances == 8 and erros == 2)):
+    elif((chances == 10 and erros == 3) or (chances == 8 and erros == 2)):
         print('.____.')
         print('|    |')
         print("|  (' ')")
@@ -55,10 +55,7 @@ def montarForca():
     # Usa em Chances = 8 com 3 erros
     # Usa em Chances = 6 com 1 erro
     # Usa em Chances = 4 com 1 erro 
-    elif((chances == 10 and erros == 4)
-        or (chances == 8 and erros == 3)
-        or (chances == 6 and erros == 1)
-        or (chances == 4 and erros == 1)):
+    elif((chances == 10 and erros == 4) or (chances == 8 and erros == 3) or (chances == 6 and erros == 1) or (chances == 4 and erros == 1)):
         print('.____.')
         print('|    |')
         print("|  ('_')")
@@ -71,9 +68,7 @@ def montarForca():
     # Usa em Chances = 10 com 5 erros
     # Usa em Chances = 8 com 4 erros
     # Usa em Chances = 6 com 2 erros
-    elif((chances == 10 and erros == 5)
-        or (chances == 8 and erros == 4)
-        or (chances == 6 and erros == 2)):
+    elif((chances == 10 and erros == 5) or (chances == 8 and erros == 4) or (chances == 6 and erros == 2)):
         print('.____.')
         print('|    |')
         print("|  ('_')")
@@ -86,9 +81,7 @@ def montarForca():
     # Usa em Chances = 10 com 6 erros
     # Usa em Chances = 8 com 5 erros
     # Usa em Chances = 6 com 3 erros
-    elif((chances == 10 and erros == 6)
-        or (chances == 8 and erros == 5)
-        or (chances == 6 and erros == 3)):
+    elif((chances == 10 and erros == 6) or (chances == 8 and erros == 5) or (chances == 6 and erros == 3)):
         print('.____.')
         print('|    |')
         print("|  ('_')")
@@ -102,10 +95,7 @@ def montarForca():
     # Usa em Chances = 8 com 6 erros
     # Usa em Chances = 6 com 4 erros
     # Usa em Chances = 4 com 2 erros
-    elif((chances == 10 and erros == 7)
-        or (chances == 8 and erros == 6)
-        or (chances == 6 and erros == 4)
-        or (chances == 4 and erros == 2)):
+    elif((chances == 10 and erros == 7) or (chances == 8 and erros == 6) or (chances == 6 and erros == 4) or (chances == 4 and erros == 2)):
         print('.____.')
         print('|    |')
         print("|  ('_')")
@@ -118,9 +108,7 @@ def montarForca():
     # Usa em Chances = 10 com 8 erros
     # Usa em Chances = 8 com 7 erros
     # Usa em Chances = 6 com 5 erros
-    elif((chances == 10 and erros == 8)
-        or (chances == 8 and erros == 7)
-        or (chances == 6 and erros == 5)):
+    elif((chances == 10 and erros == 8) or (chances == 8 and erros == 7) or (chances == 6 and erros == 5)):
         print('.____.')
         print('|    |')
         print("|  ('_')")
@@ -132,8 +120,7 @@ def montarForca():
     
     # Usa em Chances = 10 com 9 erro
     # Usa em Chances = 4 com 3 erros
-    elif((chances == 10 and erros == 9)
-        or (chances == 4 and erros == 3)):
+    elif((chances == 10 and erros == 9) or (chances == 4 and erros == 3)):
         print('.____.')
         print('|    |')
         print("|  ('_')")
@@ -147,10 +134,7 @@ def montarForca():
     # Usa em Chances = 8 com 8 erros
     # Usa em Chances = 6 com 6 erros
     # Usa em Chances = 4 com 4 erros
-    elif((chances == 10 and erros == 10)
-        or (chances == 8 and erros == 8)
-        or (chances == 6 and erros == 6)
-        or (chances == 4 and erros == 4)):
+    elif((chances == 10 and erros == 10) or (chances == 8 and erros == 8) or (chances == 6 and erros == 6) or (chances == 4 and erros == 4)):
         print('.____.')
         print('|  (x_x)')
         print('|  -| |-')
@@ -160,7 +144,7 @@ def montarForca():
         print('|')
         print('##########')
 
-# Dicionario de Categorias de Palavras disponíveis para o jogo
+# Dicionario de Categorias de Palavras Secretas disponíveis para o jogo
 categorias = {
     'Animais' : ['abelha', 'aguia', 'alce', 'aranha', 'avestruz', 'babuino', 'baiacu', 'baleia', 'borboleta', 'capivara',
     'cavalo', 'cachorro', 'canguru', 'camundongo', 'crocodilo', 'carrapato', 'caranguejo', 'dromedario', 'dinossauro',
@@ -234,16 +218,17 @@ categNum = {
 erros = 0
 acerteiTudo = False
 letrasUsadas = []
+pontos = 0
 
 # Iniciando o Jogo
 print('\nVAMOS JOGAR FORCA, ACEITA O DESAFIO???')
 
-# Informando as Categorias de Palavras disponíveis
+# Informando as Categorias de Palavras Secretas disponíveis
 print()
 print('ESCOLHA UMA DAS CATEGORIAS ABAIXO')
 print('---------------------------------')
 for opcao in categNum:
-    print('|  {} --> {}'.format(opcao, categNum[opcao]))
+    print(f'|  {opcao} --> {categNum[opcao]}')
 print('---------------------------------\n')
 
 # Solicitando a Categoria desejada
@@ -260,7 +245,7 @@ while True:
 
 escolha = categNum[numEscolha]
 
-# Selecionando de forma Randomica a palavra da Forca
+# Selecionando de forma Randomica e tratando a palavra secreta da Forca
 palavra = random.choices(categorias[escolha])
 palavraInicial = (''.join(palavra))
 palavraInicial = palavraInicial.upper()
@@ -278,9 +263,11 @@ elif(len(palavraInicial) >= 10 and len(palavraInicial) <= 11):
 elif(len(palavraInicial) >= 12):
     chances = 10
 
-print('\nCategoria escolhida: ', escolha.upper())
-print('Você pode errar:', chances,'vezes')
+# Exibindo a Categoria Escolhida e o número de chances fornecidas para a palavra secreta selecionada
+print(f'\nCategoria escolhida: {escolha.upper()}')
+print(f'Você pode errar: {chances} vezes')
 
+# Exibindo diagrama da Forca Vazia
 montarForca()
 
 # Laço de Palpites 
@@ -297,18 +284,18 @@ while erros < chances and not acerteiTudo:
     # Solicitando palpite
     palpite = input('\nDigite uma letra: ')
 
-    # Validando palpite
+    # Validando e tratando o palpite 
     palpiteValid = palpite.isalpha() and len(palpite) == 1
 
     while not palpiteValid:
-        palpite = input('Palpite inválido, informe outro: ')
+        palpite = input('Palpite inválido, digite "uma letra": ')
         palpiteValid = palpite.isalpha() and len(palpite) == 1
 
     palpite = palpite.upper()
 
     # Verificar se a letra ja foi usada, senão inclui-la na lista 'letrasUsadas'
     if palpite in letrasUsadas:
-        print('Essa letra já foi usada. Escolha outra!')
+        print('Essa letra já foi usada. Digite outra!')
     else:
         letrasUsadas.append(palpite)
 
@@ -318,12 +305,13 @@ while erros < chances and not acerteiTudo:
             if (chances - erros == 1):
                 print('Bom palpite... Você ainda pode errar: 1 vez')
             else:
-                print('Bom palpite... Você ainda pode errar:', chances - erros,'vezes')
+                print(f'Bom palpite... Você ainda pode errar: {chances - erros} vezes')
 
-            #Verificar Vitoria
+            # Verificar Vitoria
             for letra in palavraInicial:
                 if letra in letrasUsadas:
                     ponto = ponto + 1
+                    pontos = pontos + 1
 
             if ponto == len(palavraInicial):
                 acerteiTudo = True
@@ -336,20 +324,19 @@ while erros < chances and not acerteiTudo:
             elif (chances - erros == 1):
                 print('Erroooou... Você ainda pode errar: 1 vez')
             else:
-                print('Erroooou... Você ainda pode errar:', chances - erros,'vezes')
+                print(f'Erroooou... Você ainda pode errar: {chances - erros} vezes')
             
-    #Exibir Palpites
+    # Exibir Palpites já utilizados
     print('Palpites: ')
     for letras in letrasUsadas:
         print(letras, end='-')
     print()
 
-    #Desenhando a Forca
-    print('\nCategoria escolhida: ', escolha)
+    # Desenhando a Forca conforme numero de chances e erros já contabilizados
+    print(f'\nCategoria escolhida: {escolha}')
     montarForca()
 
-#Encerrando o programa (Vitória/Derrota)
-
+# Encerrando o programa (Vitória/Derrota)
 ## Gerando a visualização da Palavra da partida na tela com '_' no lugar das letras não acertadas
 for letra in palavraInicial:
     if letra in letrasUsadas:
@@ -357,15 +344,41 @@ for letra in palavraInicial:
     else:
         print('_', end=' ')
 
-## Vitória
-if acerteiTudo:
+## Informando a Vitória
+if acerteiTudo and erros == 0:
+    print()
+    print('\nVocê é muito bom mesmo, não errou nenhuma letra... Parabéns!!!\n')
+
+    # Exibindo Troféu na Tela
+    trofeu = Image.open('trofeu.jpg')
+    trofeu.show()
+
+elif acerteiTudo:
     print()
     print('\nParabéns... Você venceu a partida!!!\n')
 
-## Derrota
+    # Exibindo Joinha na Tela
+    joia = Image.open('joinha.jpg')
+    joia.show()
+
+## Informando a Derrota
+
+elif pontos == 0:
+    print()
+    print('\nPrecisa estudar mais, heim... Não acertou nenhuma letra... Lamentável!!!\n')
+    print(f'A "Palavra Secreta" selecionada foi: {palavraInicial}\n')
+
+    # Exibindo Caveirinha na Tela
+    decepcao = Image.open('decepcao.jpg')
+    decepcao.show()
+
 else:
     print()
     print('\nNão foi desta vez... Tente de novo!!!')
-    print('A palavra selecionada foi: ', palavraInicial.upper(), '\n')
+    print(f'A "Palavra Secreta" selecionada foi: {palavraInicial}\n')
+
+    # Exibindo Caveirinha na Tela
+    caveirinha = Image.open('esqueleto.jpg')
+    caveirinha.show()
 
 # FIM
