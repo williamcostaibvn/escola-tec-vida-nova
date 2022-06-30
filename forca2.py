@@ -350,7 +350,7 @@ if acerteiTudo and erros == 0:
     print('\nVocê é muito bom mesmo, não errou nenhuma letra... Parabéns!!!\n')
 
     # Exibindo Troféu na Tela
-    trofeu = Image.open('Trofeu.jpg')
+    trofeu = Image.open('vitoriatrofeu.jpg')
     trofeu.show()
 
 elif acerteiTudo:
@@ -358,7 +358,7 @@ elif acerteiTudo:
     print('\nParabéns... Você venceu a partida!!!\n')
 
     # Exibindo Joinha na Tela
-    joia = Image.open('Joinha.jpg')
+    joia = Image.open('vitoriajoinha.jpg')
     joia.show()
 
 ## Informando a Derrota
@@ -369,7 +369,7 @@ elif pontos == 0:
     print(f'A "Palavra Secreta" selecionada foi: {palavraInicial}\n')
 
     # Exibindo Deslike na Tela
-    decepcao = Image.open('Decepcao.jpg')
+    decepcao = Image.open('derrotadecepcao.jpg')
     decepcao.show()
 
 else:
@@ -378,7 +378,7 @@ else:
     print(f'A "Palavra Secreta" selecionada foi: {palavraInicial}\n')
 
     # Exibindo Caveirinha na Tela
-    caveirinha = Image.open('Esqueleto.jpg')
+    caveirinha = Image.open('derrotaesqueleto.jpg')
     caveirinha.show()
 
 # FIM
