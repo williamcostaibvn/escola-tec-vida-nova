@@ -31,4 +31,4 @@ class Quitanda:
                     resto = troco%moeda
                     troco = resto
         if troco < 0.05:
-            print('\nAinda falta devolver R$ %1.2f. Aceita uma Bala?' % (troco))
+            print('\nAinda falta devolver R$ %1.2f. Aceita uma Bala?' % (troco))  # Hahahahaha simplesmente sensacional
