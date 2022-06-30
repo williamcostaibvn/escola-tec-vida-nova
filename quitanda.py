@@ -67,6 +67,15 @@ while (comprarMais != 'N'):
     # Anotando pedido na classeQuitanda.py
     pedido[frutas[venda]] = Quitanda(frutas[venda], qtd, preco)
 
+
+    # Faltou uma única coisa aqui, Will. Caso o cliente já tenha pedido a fruta, a linha acima sobrescreve a contagem anterior, porém o valor total fica correto.
+    # Faça o teste pedindo a mesma fruta duas vezes, em quantidades diferentes. 
+
+    # Outra coisa, apesar da lógica funcionar veja se faz sentido. Você está criando um objeto da classe Quitanda para cada pedido do cliente
+    # Talvez faria mais sentido você ter um único objeto Quitanda e ir adicionando as diferentes frutas a ele
+    # Ou talvez poderia ter uma classe Fruta que você usaria nesse contexto.
+    # Mas enfim, percebe? É só questão de usar uma classe de Quitanda como uma quitanda mesmo. A despeito disso, a lógica funciona bem
+
     # Exibir pedido para o cliente
     print('RESUMO DA COMPRA:')
     print('----------------------------------------------------------------------')
@@ -90,6 +99,8 @@ if(pagamento < totalPedido):
     print('O valor pago é menor que o valor da compra!')
     pagamento = int(input('Reveja o valor do pagamento: '))
     pedido[frutas[venda]].calculaTroco(totalPedido, pagamento)
+    # Aqui o único problema é que, caso o cliente insira duas vezes um valor menor que o preço da compra, o programa segue em frente na segunda vez mesmo assim
+    # Talvez seria interessante prender o cara num while pra ele só sair quando pagasse direito
     
 else:
     pedido[frutas[venda]].calculaTroco(totalPedido, pagamento)
