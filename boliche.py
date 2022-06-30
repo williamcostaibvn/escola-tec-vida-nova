@@ -6,6 +6,13 @@ def mostra_pista(pinos):
     print()
 
 def remove_repetidos(lista):
+    # Vou te dar uma dica. Para eliminar duplicados dá pra usar um irmão do dicionário, o "set"
+    # Se fizeres algo como:
+    # nao_repetidos_set = set(lista)
+    # Tu terás um conjunto dos elementos com os duplicados removidos.
+    # O problema é apenas que convertemos a lista (tipo list) num set (tipo set)
+    # Para convertê-lo novamente basta usar:
+    # nao_repetidos = list(nao_repetidos_set)
     l = []
     for i in lista:
         if i not in l:
@@ -19,18 +26,20 @@ pista = [
      ' ', ' ', 'I', ' ', 'I', ' ', ' ', '\n', 
      ' ', ' ', ' ', 'I']
 
-posicao_dos_pinos = {
-     '1' : 27,
-     '2' : 18,
-     '3' : 20,
-     '4' : 9,
-     '5' : 11,
-     '6' : 13,
-     '7' : 0,
-     '8' : 2,
-     '9' : 4,
-     '10': 6
-}
+# Vi que você usou a posição dos pinos ali na variável jogo, então até poderia eliminar esse dicionário sem problemas
+
+# posicao_dos_pinos = {
+#      '1' : 27,
+#      '2' : 18,
+#      '3' : 20,
+#      '4' : 9,
+#      '5' : 11,
+#      '6' : 13,
+#      '7' : 0,
+#      '8' : 2,
+#      '9' : 4,
+#      '10': 6
+# }
 
 jogo = [27, 18, 20, 9, 11, 13, 0, 2, 4, 6]
 
@@ -43,12 +52,13 @@ result = ''
 
 if(jogada1 == 's'):
 
-    for x in range(1): 
-        lancamento = random.choices(jogo, weights=[10, 10, 10, 10, 10, 10, 10, 10, 10, 10], k=10)
-        lancamento = remove_repetidos(lancamento)
+    # Como você quer executar esse processo uma vez só, não precisa do primeiro for
+    # E percebes como usas essa mesma expressão lá em baixo? Uma função para fazer isso viria a calhar hehe
+    lancamento = random.choices(jogo, weights=[10, 10, 10, 10, 10, 10, 10, 10, 10, 10], k=10)
+    lancamento = remove_repetidos(lancamento)
 
-        for pino in lancamento:
-            pista[pino] = ' '
+    for pino in lancamento:
+        pista[pino] = ' '
 
 else:
     exit()
@@ -72,6 +82,7 @@ if(result == 'spare'):
     if(jogada2 == 's'):
 
         for x in range(1): 
+            # Aliás, muito boa escolha da função "random.choices", mandou muito bem!
             lancamento2 = random.choices(jogo, weights=[10, 10, 10, 10, 10, 10, 10, 10, 10, 10], k=10)
             lancamento2 = remove_repetidos(lancamento2)
 
