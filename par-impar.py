@@ -67,8 +67,18 @@ class Adversario:
         print(f'\n{self.nome}, vamos disputar um campeonato de PAR ou IMPAR!!!\n')
         
         #Defindo número de partidas
-        numPartidas = int(input('Quantas partidas deseja disputar: '))
-        print('\n-------------------------')
+        while True:
+                try:
+                    numPartidas = int(input('Quantas partidas deseja disputar (Limite de 10 partidas): '))
+                    print()
+                    if (numPartidas > 10):
+                        raise ValueError()
+                except ValueError:
+                    print('Digite apenas números entre 1 e 10!')
+                else:
+                    break
+
+        print('-------------------------')
         
         jogadas = 0
 
@@ -85,29 +95,24 @@ class Adversario:
                 if partida == 0:
                     resultados.append(0)
 
-                else:
+                elif partida == 1:
                     resultados.append(1)
-        
-        zeros = 0
 
-        uns = 0
+        # Contador de vitórias de cada jogador (Usuário/Computador)                
+        winUser = resultados.count(0)
 
-        # Contador de vitórias de cada jogador (Usuário/Computador)
-        for i in resultados:
-            if resultados[i] == 0:
-                zeros += 1
-            elif resultados[i] == 1:
-                uns += 1
+        winSystem = resultados.count(1)
 
         # Relatório do Campeonato
+        print(resultados)
         print(f'\nJogamos {numPartidas} partida(s)')
-        print(f'\nVocê ganhou {zeros} partida(s)')
-        print(f'\nEu ganhei {uns} partida(s)')
+        print(f'\nVocê ganhou {winUser} partida(s)')
+        print(f'\nEu ganhei {winSystem} partida(s)')
 
         # Declaração do Vencedor
-        if zeros > uns:
+        if winUser > winSystem:
             print(f'\nPARABÉNS, {self.nome}, você venceu este Campeonato!!!\n')
-        elif zeros < uns:
+        elif winUser < winSystem:
             print(f'\nÉ {self.nome}, desta vez que você não conseguiu me vencer... LOOSER!!!\n')
         else:
             print(f'\nEMPATE... {self.nome} te desafio a disputar mais um campeonato comigo!!!\n')
