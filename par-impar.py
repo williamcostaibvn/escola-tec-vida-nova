@@ -104,7 +104,6 @@ class Adversario:
         winSystem = resultados.count(1)
 
         # Relatório do Campeonato
-        print(resultados)
         print(f'\nJogamos {numPartidas} partida(s)')
         print(f'\nVocê ganhou {winUser} partida(s)')
         print(f'\nEu ganhei {winSystem} partida(s)')
@@ -113,7 +112,7 @@ class Adversario:
         if winUser > winSystem:
             print(f'\nPARABÉNS, {self.nome}, você venceu este Campeonato!!!\n')
         elif winUser < winSystem:
-            print(f'\nÉ {self.nome}, desta vez que você não conseguiu me vencer... LOOSER!!!\n')
+            print(f'\nÉ {self.nome}, desta vez você não conseguiu me vencer... LOOSER!!!\n')
         else:
             print(f'\nEMPATE... {self.nome} te desafio a disputar mais um campeonato comigo!!!\n')
 
