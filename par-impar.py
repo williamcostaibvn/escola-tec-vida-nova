@@ -88,10 +88,11 @@ class Adversario:
         while not jogadas == numPartidas:
 
             for n in range(0, numPartidas):
+                jogadas += 1
+                print(f'(Partida {jogadas})')
                 partida = self.par_ou_impar()
 
-                jogadas += 1
-
+                
                 if partida == 0:
                     resultados.append(0)
 
