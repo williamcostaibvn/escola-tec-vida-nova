@@ -1,3 +1,5 @@
+import time
+
 class Quitanda:
 
     def __init__(self, produto, quantidade, valor):
@@ -10,8 +12,8 @@ class Quitanda:
         print(f' {self.produto}            {self.qtd}                  %4.2f               %4.2f' % (self.preco, self.total))
 
     def calculaTroco(self, divida, valorPago):
-        tipoCedulas = [20, 10, 5, 2]
-        tipoMoedas = [1, 0.5, 0.25, 0.1, 0.05]
+        tipoCedulas = [20.0, 10.0, 5.0, 2.0]
+        tipoMoedas = [1.0, 0.5, 0.25, 0.1, 0.05]
         print('\nValor do Pedido:  R$ %4.2f' % (divida))
         print('Valor Pago:       R$ %4.2f' % (valorPago))
         troco = valorPago - divida
@@ -98,48 +100,63 @@ while (comprarMais != 'N'):
         else:
             break
     
-    # Exibindo o preço da fruta selecionada
-    preco = precoFrutas[venda]
-    print('\nCusta R$ {} cada unidade do(a) {} '.format(preco, frutas[venda]))
+    if(frutas[venda] in pedido):
+        print(f'{frutas[venda]} já está no pedido!')
+        remover = input('\nDeseja remove-lo do pedido (s/n)? ')
+        remover = remover.upper()
+        if(remover == 'S'):
+            del pedido[frutas[venda]]
+        else:
+            print('\nPara alterar a quantidade, remova o item do pedido')
+            print('e inclua novamente com a quantidade desejada!')
+            time.sleep(5)
 
-    # Solicitando a quantidade da Fruta desejada
-    qtd = int(input('\nQuantas unidades você gostaria de comprar? '))
-    print()
+    else:
+        # Exibindo o preço da fruta selecionada
+        preco = precoFrutas[venda]
+        print('\nCusta R$ {} cada unidade do(a) {} '.format(preco, frutas[venda]))
 
-    # Anotando pedido na classe Quitanda
+        # Solicitando a quantidade da Fruta desejada
+        qtd = int(input('\nQuantas unidades você gostaria de comprar? '))
+        print()
 
-    pedido[frutas[venda]] = frutas[venda]
+        if(qtd == 0):
+            comprarMais = input('\nDeseja comprar mais alguma fruta (s/n)? ')
+            comprarMais = comprarMais.upper()
 
-    pedido[frutas[venda]] = Quitanda(pedido[frutas[venda]], qtd, preco)
+        # Anotando pedido na classe Quitanda
+        else:
+            pedido[frutas[venda]] = frutas[venda]
+            pedido[frutas[venda]] = Quitanda(pedido[frutas[venda]], qtd, preco)
 
-    # Exibir pedido para o cliente
+            # Exibir pedido para o cliente
 
-    print('RESUMO DA COMPRA:')
-    print('----------------------------------------------------------------------')
-    print(' Produto          Quant.            Valor Unit.           Valor Total')
-    print('----------------------------------------------------------------------')
+            print('RESUMO DA COMPRA:')
+            print('----------------------------------------------------------------------')
+            print(' Produto          Quant.            Valor Unit.           Valor Total')
+            print('----------------------------------------------------------------------')
 
-    for compra in pedido.keys():
-        pedido[compra].exibirPedido()
+            for compra in pedido.keys():
+                pedido[compra].exibirPedido()
 
-    print('----------------------------------------------------------------------')
-    print(f'Total de Itens: {int(len(pedido))}')
+            print('----------------------------------------------------------------------')
+            print(f'Total de Itens: {int(len(pedido))}')
 
-    totalPedido = 0.0
+            totalPedido = 0.0
 
-    for valor in pedido.keys():
-        totalPedido = pedido[valor].total + totalPedido
+            for valor in pedido.keys():
+                totalPedido = pedido[valor].total + totalPedido
 
-    print('Valor total da Compra: R$ %4.2f' % (totalPedido))
-    
-    # Encerrar laço do pedido de frutas - Sim/Não
-    comprarMais = input('\nDeseja comprar mais alguma fruta (s/n)? ')
-    comprarMais = comprarMais.upper()
+            print('Valor total da Compra: R$ %4.2f' % (totalPedido))
+            
+        # Encerrar laço do pedido de frutas - Sim/Não
+        comprarMais = input('\nDeseja comprar mais alguma fruta (s/n)? ')
+        comprarMais = comprarMais.upper()
 
 # Teste para pagamento menor que valor do pedido, calculo de troco e quantidade de notas e moedas para devolver
 while True:
     try:
-        pagamento = int(input('\nInforme o valor do pagamento: '))
+        pagamento = float(input('\nInforme o valor do pagamento: '))
         print('')
         if(pagamento < totalPedido):
             raise ValueError()
