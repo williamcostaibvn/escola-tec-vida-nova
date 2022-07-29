@@ -164,7 +164,7 @@ if __name__ == '__main__':
 
     vitoriaComputador = 0
 
-    # Iniciando o jogo de 3 rodadas
+    # Exibindo as cartas dos jogadores
 
     print('\nEssas são as cartas do COMPUTADOR: ')
 
@@ -181,6 +181,8 @@ if __name__ == '__main__':
     print(f'\n{jogador1}, essas são as suas cartas: ')
     jogo.monstrarBaralho(cartasJogador)
 
+    # Iniciando o jogo de 3 rodadas
+
     while partidas < 3:
 
         print('\n-------------------------------------------------------------\n')
@@ -188,14 +190,9 @@ if __name__ == '__main__':
         while True:
             try:
                 jogada = int(input('Qual carta deseja jogar (1, 2 ou 3): '))
-                if jogada == 1:
-                    teste = 0
-                elif jogada == 2:
-                    teste = 1
-                elif jogada == 3:
-                    teste = 2
-
-                if cartasJogador[teste] == None:
+                jogada -= 1
+                
+                if cartasJogador[jogada] == None:
                     raise ValueError()
             except ValueError:
                 print('\nATENÇÃO... Esta carta já foi jogada ou não existe, escolha outra!')
@@ -208,12 +205,7 @@ if __name__ == '__main__':
 
         # Selecionando a carta escolhido na lista cartasJogador
 
-        if jogada == 1:
-            descartarJogador.append(cartasJogador[0])
-        elif jogada == 2:
-            descartarJogador.append(cartasJogador[1])
-        elif jogada == 3:
-            descartarJogador.append(cartasJogador[2])
+        descartarJogador.append(cartasJogador[jogada])
 
         if len(descartarJogador[0]) == 2:
             valorCartaJogador = dictValor[descartarJogador[0][0]]
@@ -224,7 +216,7 @@ if __name__ == '__main__':
 
         # Imprimindo a carta escolhida
 
-        print(f'\nCarta {jogada}:')
+        print(f'\nCarta {jogada+1}:')
 
         if len(descartarJogador[0]) == 2:
             valorCartaJogador = dictValor[descartarJogador[0][0]]
@@ -237,13 +229,6 @@ if __name__ == '__main__':
             jogador = Carta(valorCartaJogador, naipeCartaJogador)
 
         # Removendo carta selecinada da lista cartasJogador
-
-        if jogada == 1:
-            jogada = 0
-        elif jogada == 2:
-            jogada = 1
-        elif jogada == 3:
-            jogada = 2
 
         cartasJogador[jogada] = None
         
